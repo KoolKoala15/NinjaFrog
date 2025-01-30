@@ -15,6 +15,7 @@ AudioManager* AudioManager::getInstance()
 	return s_instance;
 }
 
+// ######################		SoundEffects		######################
 bool AudioManager::loadSound(const std::string& name, const std::string& filepath)
 {
 	auto buffer = std::make_shared<sf::SoundBuffer>();
@@ -28,10 +29,10 @@ bool AudioManager::loadSound(const std::string& name, const std::string& filepat
 }
 
 void AudioManager::playSound(const std::string& name) {
-    // Shearch for the buffer of the corresponding sound
+    // Search for the buffer of the corresponding sound
     auto soundBufferIt = m_soundBuffers.find(name);
     if (soundBufferIt != m_soundBuffers.end()) {
-        // Create or re-use an instande of sf::Sound
+        // Create or re-use an instance of sf::Sound
         auto& sound = m_activeSounds[name];
         if (!sound) {
             sound = std::make_shared<sf::Sound>();
@@ -45,6 +46,7 @@ void AudioManager::playSound(const std::string& name) {
     }
 }
 
+// ######################		Music		######################
 bool AudioManager::loadMusic(const std::string& name, const std::string& filepath) {
     auto music = std::make_shared<sf::Music>();
     if (!music->openFromFile(filepath)) {

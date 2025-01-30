@@ -46,36 +46,34 @@ class Game
 
 		bool init(GameCreateInfo& createInfo);
 
-		void CreateHuds();
-
-		void CreateMenus();
 
 		bool isRunning() const;
+		void closeGame();
 
 		void update(uint32_t deltaMilliseconds);	
 		void render();
-
-		void openLevel(int levelNumber);
-
-		void passLevel();
-
 		sf::RenderWindow& getRenderWindow() { return *m_window; }
 
-		bool isLevelLocked(int level) { return !m_levels[level].unlocked; }
 
+		// UI
+		void CreateHuds();
+		void CreateMenus();
+		void goToMainMenu();
+		void goToLevelMenu();
+
+		// Level logic
+		void openLevel(int levelNumber);
+		void passLevel();
+		void resetLevel();
+		bool isLevelLocked(int level) { return !m_levels[level].unlocked; }
+		int getLevelNumb() { return m_levelNumb; }
+
+		// Pause 
 		void setPause(bool pause) { m_pause = pause; }
 		bool getPause() { return m_pause; }
 		void togglePause();
 
-		void closeGame();
-
-		void resetLevel();
-
-		void goToMainMenu();
-		void goToLevelMenu();
-
-		int getLevelNumb() { return m_levelNumb; }
-
+		// Score
 		float getCurrentScore();
 
 		SaveData m_saveData;

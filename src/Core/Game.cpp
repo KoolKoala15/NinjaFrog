@@ -11,6 +11,20 @@
 #include <UI/UIScreenMainMenu.h>
 #include <UI/UIHud.h>
 
+
+Game::~Game()
+{
+	delete m_uiManager;
+	delete m_world;
+	delete m_window	;
+}
+
+void Game::closeGame()
+{
+	ConfigLoader::makeSave(m_saveData);
+	m_window->close();
+}
+
 bool Game::init(GameCreateInfo& createInfo)
 {
 	assert(m_window == nullptr && m_world == nullptr && "Game is already initialized, we are about to leak memory");
@@ -30,7 +44,6 @@ bool Game::init(GameCreateInfo& createInfo)
 		std::cout << level.first << " : " << level.second << std::endl;
 	}
 
-
 	// ##########	Levels Load		##########
 	if (!ConfigLoader::loadLevelsData("../Data/Config/levels_config.txt", m_levels))
 	{std::cerr << "Error loading levels " << std::endl; }
@@ -43,12 +56,13 @@ bool Game::init(GameCreateInfo& createInfo)
 	}
 	m_lastLevel = m_levels.size();
 
+#if DEBUG_MODE
 	std::cerr << "List of loaded levels: " <<m_levels.size()<< std::endl;
 	for (int i = 1; i < m_levels.size() + 1; ++i)
 	{
 		std::cerr << i << " // Level numb: " << m_levels[i].levelNumber << " // Level path: " << m_levels[i].levelPath << " // unloked: " << m_levels[i].unlocked << " // background" << m_levels[i].backgroundTexturePath << std::endl;
 	}
-
+#endif
 
 	// ##########	UIManager		##########
 	UIManager* uiManager = UIManager::getInstance();
@@ -56,7 +70,6 @@ bool Game::init(GameCreateInfo& createInfo)
 	m_uiManager->init(this);
 
 	CreateMenus();
-
 	CreateHuds();
 
 	m_uiManager->setCurrentScreen("MainMenu", true);
@@ -65,6 +78,42 @@ bool Game::init(GameCreateInfo& createInfo)
 	return true;
 }
 
+bool Game::isRunning() const
+{
+	return m_window->isOpen();
+}
+
+void Game::update(uint32_t deltaMilliseconds)
+{
+	if (m_world && !m_inMainMenu) {
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) || sf::Keyboard::isKeyPressed(sf::Keyboard::P)) {
+			if (!m_pauseKeyPresed && m_world->m_levelOn) {
+				m_pauseKeyPresed = true;
+				togglePause();
+			}
+		}
+		else { m_pauseKeyPresed = false; }
+
+		if(!m_pause) m_world->update(deltaMilliseconds);
+	}
+
+	m_uiManager->update(deltaMilliseconds, *m_window);
+}
+
+void Game::render()
+{
+	m_window->clear();
+
+	if(m_world && !m_inMainMenu) m_world->render(*m_window);
+
+	m_uiManager->render(*m_window);
+
+	m_window->display();
+}
+
+
+
+// #############		UI			#############
 void Game::CreateHuds()
 {
 	// ------	PauseScreen	------
@@ -96,6 +145,22 @@ void Game::CreateMenus()
 	m_uiManager->addScreen("LevelSelector", new UILevelSelector(levelSelectorDescription, this));
 }
 
+void Game::goToMainMenu()
+{
+	m_inMainMenu = true;
+	deleteWorld();
+	m_uiManager->setCurrentScreen("MainMenu", true);
+}
+
+void Game::goToLevelMenu()
+{
+	m_inMainMenu = true;
+	deleteWorld();
+	m_uiManager->setCurrentScreen("LevelSelector", true);
+}
+
+
+// #############		Level Logic			#############
 void Game::openLevel(int levelNumber)
 {
 	if (levelNumber == -1) levelNumber = m_levelNumb;
@@ -118,6 +183,14 @@ void Game::openLevel(int levelNumber)
 	}
 }
 
+void Game::passLevel()
+{
+	m_saveData.levelScores[m_levelNumb] = getCurrentScore();
+	setLevelNumber(m_levelNumb + 1);
+	for (auto& level : m_saveData.levelScores) {
+		std::cout << level.first << " : " << level.second << std::endl;
+	}
+}
 
 void Game::setLevelNumber(int levelNumber)
 {
@@ -127,42 +200,14 @@ void Game::setLevelNumber(int levelNumber)
 	}
 }
 
-void Game::closeGame()
-{
-	ConfigLoader::makeSave(m_saveData);
-	m_window->close();
-}
-
-
-Game::~Game()
-{
-	// To-Do: make sure m_world is unloaded()
-	delete m_uiManager;
-	delete m_world;
-	delete m_window	;
-}
-
-bool Game::isRunning() const 
+void Game::resetLevel()
 { 
-	return m_window->isOpen(); 
+	openLevel(m_levelNumb); 
 }
 
-void Game::update(uint32_t deltaMilliseconds)
-{
-	if (m_world && !m_inMainMenu) {
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) || sf::Keyboard::isKeyPressed(sf::Keyboard::P)) {
-			if (!m_pauseKeyPresed && m_world->m_levelOn) {
-				m_pauseKeyPresed = true;
-				togglePause();
-			}
-		}
-		else { m_pauseKeyPresed = false; }
 
-		if(!m_pause) m_world->update(deltaMilliseconds);
-	}
+// #############		Pause		#############
 
-	m_uiManager->update(deltaMilliseconds, *m_window);
-}
 void Game::togglePause()
 {
 	if (m_pause) {
@@ -173,44 +218,7 @@ void Game::togglePause()
 	}
 }
 
-void Game::render()
-{
-	m_window->clear();
-
-	if(m_world && !m_inMainMenu) m_world->render(*m_window);
-
-	m_uiManager->render(*m_window);
-
-	m_window->display();
-}
-
-
-void Game::resetLevel()
-{ 
-	openLevel(m_levelNumb); 
-}
-
-void Game::goToMainMenu()
-{
-	m_inMainMenu = true;
-	deleteWorld();
-	m_uiManager->setCurrentScreen("MainMenu", true);
-}
-
-void Game::goToLevelMenu()
-{
-	m_inMainMenu = true;
-	deleteWorld();
-	m_uiManager->setCurrentScreen("LevelSelector", true);
-}
-
-void Game::deleteWorld()
-{
-	m_world->deinit();
-	delete m_world;
-	m_world = nullptr;
-}
-
+// #############		Score		#############
 float Game::getCurrentScore()
 {
 	if (m_world) {
@@ -221,11 +229,10 @@ float Game::getCurrentScore()
 	}
 }
 
-void Game::passLevel()
+void Game::deleteWorld()
 {
-	m_saveData.levelScores[m_levelNumb] = getCurrentScore();
-	setLevelNumber(m_levelNumb + 1);
-	for (auto& level : m_saveData.levelScores) {
-		std::cout << level.first << " : " << level.second << std::endl;
-	}
+	m_world->deinit();
+	delete m_world;
+	m_world = nullptr;
 }
+

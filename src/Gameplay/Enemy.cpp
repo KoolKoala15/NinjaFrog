@@ -14,7 +14,6 @@ Enemy::EnemyType Enemy::stringToEnemyType(const std::string& typeStr)
 			return pair.second;
 		}
 	}
-	std::cout << "Enmy type not found (" << typeStr << ")" << std::endl;
 	return Enemy::EnemyType::BaseEnemy;
 }
 

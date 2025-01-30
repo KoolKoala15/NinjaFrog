@@ -6,6 +6,10 @@
 #include <Core/AudioManager.h>
 #include <Core/ConfigLoader.h>
 #include <Gameplay/Enemy.h>
+#include <Gameplay/Player.h>
+#include <UI/UIMenu.h>
+#include <UI/UILevelSelector.h>
+
 
 bool ConfigLoader::loadEntityDescriptor(const std::string& filePath, Entity::EntityDescriptor& descriptor)
 {

@@ -1,12 +1,12 @@
 #include <Core/EnemyManager.h>
-#include <Core/ConfigLoader.h>
-#include <Gameplay/saw.h>
-#include <Gameplay/spike.h>
-#include <Gameplay/fire.h>
+
 #include <iostream>
 #include <random>
-#include <Utils/Constants.h>
 #include <vector>
+#include <Core/ConfigLoader.h>
+#include <Gameplay/fire.h>
+#include <Gameplay/saw.h>
+#include <Gameplay/spike.h>
 
 
 EnemyManager::~EnemyManager()
@@ -78,7 +78,7 @@ void EnemyManager::init(std::unordered_map<std::string, std::vector<std::pair<sf
 			}
 		}
 	}
-//#if DEBUG_MODE
+#if DEBUG_MODE
 	std::cout << " ///////////////////// EnemyManager Pools  ////////////////////////" << std::endl;
 	std::cout << " __ Active Enemies __  " << std::endl;
 	for (auto& pair : m_activeEnemies)
@@ -97,7 +97,7 @@ void EnemyManager::init(std::unordered_map<std::string, std::vector<std::pair<sf
 		}
 	}
 	std::cout << " /////////////////////////////////////////////////////////////////  " << std::endl;
-//#endif
+#endif
 }
 
 

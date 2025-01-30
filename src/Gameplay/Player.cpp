@@ -4,9 +4,9 @@
 #include <Utils/Constants.h>
 #include <SFML/Window/Keyboard.hpp>
 #include <vector>
-#include <iostream>
+#include <iostream> 
 
-bool Player::init(const PlayerDescriptor& playerDescriptor)
+bool Player::init(PlayerDescriptor& playerDescriptor)
 {
 	m_jumpForce = playerDescriptor.jumpForce;
 

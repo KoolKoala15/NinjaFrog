@@ -14,7 +14,7 @@ public:
 		Fire
 	};
 
-	struct EnemyDescriptor:EntityDescriptor
+	struct EnemyDescriptor : EntityDescriptor
 	{
 		sf::Vector2f endPosition;
 		EnemyType type = EnemyType::BaseEnemy;
@@ -22,11 +22,11 @@ public:
 	
 	virtual bool init(const EnemyDescriptor& enemyDescriptor);
 
+	// Type
 	static std::unordered_map<std::string, Enemy::EnemyType> typeMap;
-
 	static Enemy::EnemyType stringToEnemyType(const std::string& typeStr);
-
 	static std::string enemyTypeToString(Enemy::EnemyType type);
+
 
 	EnemyType getType() const { return m_type; }
 

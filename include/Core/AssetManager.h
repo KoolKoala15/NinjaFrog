@@ -13,10 +13,9 @@ class AssetManager
 {
 	public:
 
-		static AssetManager* getInstance();
-
 		~AssetManager();
 
+		static AssetManager* getInstance();
 
 		void clear();
 

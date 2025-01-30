@@ -13,7 +13,7 @@ public:
 		sf::Vector2f maxSpeed{ 0.f , 0.f };
 	};
 
-	bool init(const PlayerDescriptor& playerDescriptor);
+	bool init(PlayerDescriptor& playerDescriptor);
 
 	void update(float deltaMillisecond) override;
 

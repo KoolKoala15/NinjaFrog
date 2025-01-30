@@ -71,7 +71,6 @@ void UIManager::setCurrentScreen(const std::string& name, bool pause, bool whitT
 		}
 		else { m_currentUIScreen = nullptr; }
 
-		//if(m_currentUIScreen) m_currentUIScreen->deinit();
 	}
 	else { startTransition(1); }
 }

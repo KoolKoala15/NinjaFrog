@@ -1,7 +1,6 @@
 #include <Core/AssetManager.h>
 #include <Utils/Constants.h>
 #include <Core/World.h>
-#include <Gameplay/Zombie.h>
 #include <Core/Level.h>
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <Core/ConfigLoader.h>
@@ -13,7 +12,6 @@
 #include <Core/EnemyManager.h>
 #include <UI/UIManager.h>
 #include <UI/UIHud.h>
-#include <UI/UILevelCompleted.h>
 
 
 World::~World()

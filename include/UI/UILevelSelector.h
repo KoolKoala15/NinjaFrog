@@ -10,7 +10,7 @@ class UIButton;
 class UILevelSelector : public UIMenu
 {
 public:
-	struct LevelSelectorDescriptor : public UIMenuDescriptor
+	struct LevelSelectorDescriptor :  UIMenuDescriptor
 	{
 		int totalButtons{ 0 };
 		int rows{ 0 };

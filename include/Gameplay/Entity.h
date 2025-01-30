@@ -29,7 +29,7 @@ public:
 
 	void unloadTexture();
 
-	bool init(const EntityDescriptor& entityDescriptor);
+	virtual bool init(const EntityDescriptor& entityDescriptor);
 
 	sf::FloatRect getBounds() const { return m_collisionShape.getGlobalBounds(); }
 

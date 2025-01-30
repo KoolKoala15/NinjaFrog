@@ -126,9 +126,6 @@ int CollectableManager::getCollectablePercentage()
 }
 
 
-
-
-
 void CollectableManager::deinit()
 {
 	for (Collectable* colllectable : m_activeCollectables)
