@@ -1,0 +1,10 @@
+texture=../Data/Images/Enemies/Saw(38x38).png
+enemyType=Saw
+tileWidth=38
+tileHeight=38
+maxTilesX=7
+animationSpeed=0.07
+scale=1.6,1.6
+origin=0.5,0.5
+speed=0.5,0.1
+hasManager=true

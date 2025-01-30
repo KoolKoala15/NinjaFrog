@@ -1,0 +1,15 @@
+backgroundFilePath=../Data/Levels/images/Background/Green.png
+fontPath=../Data/Fonts/Levels.ttf
+backgroundScale=1.0,1.0
+rows=2
+cols=5
+horizontalEdgesSpacer=200
+verticalEdgesSpacer=250
+buttonScale=10.0,10.0
+buttonTexturePath=../Data/Images/Menus/emptyButton.png
+buttonCharSize=80
+textPositionAdjustment=0.0,-0.1
+buttonTextColor=0,0,0,255
+exitButtonTexture=../Data/Images/Menus/Back.png
+exitButtonScale=3.0,3.0
+exitButtonPosition=30.0,30.0

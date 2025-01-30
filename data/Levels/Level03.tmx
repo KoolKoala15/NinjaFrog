@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.1" orientation="orthogonal" renderorder="right-down" width="60" height="34" tilewidth="32" tileheight="32" infinite="0" nextlayerid="11" nextobjectid="38">
+ <tileset firstgid="1" source="images/tilemap/tilesetx2.tsx"/>
+ <tileset firstgid="243" source="images/tilemap/fruits.tsx"/>
+ <tileset firstgid="251" source="images/tilemap/Enemys.tsx"/>
+ <objectgroup id="7" name="SawPositions" visible="0">
+  <object id="33" name="G2" x="1264" y="512">
+   <point/>
+  </object>
+  <object id="32" name="F2" x="1040" y="576">
+   <point/>
+  </object>
+  <object id="31" name="E2" x="848" y="672">
+   <point/>
+  </object>
+  <object id="30" name="D2" x="624" y="576">
+   <point/>
+  </object>
+  <object id="29" name="C2" x="464" y="512">
+   <point/>
+  </object>
+  <object id="7" name="B2" x="928" y="272">
+   <point/>
+  </object>
+  <object id="8" name="A2" x="1088" y="272">
+   <point/>
+  </object>
+  <object id="28" name="G1" x="1264" y="672">
+   <point/>
+  </object>
+  <object id="27" name="F1" x="1040" y="672">
+   <point/>
+  </object>
+  <object id="26" name="E2" x="848" y="512">
+   <point/>
+  </object>
+  <object id="25" name="D1" x="624" y="672">
+   <point/>
+  </object>
+  <object id="24" name="C1" x="464" y="672">
+   <point/>
+  </object>
+  <object id="9" name="B2" x="544" y="272">
+   <point/>
+  </object>
+  <object id="10" name="A1" x="1568" y="272">
+   <point/>
+  </object>
+ </objectgroup>
+ <layer id="1" name="Level" width="60" height="34">
+  <data encoding="base64" compression="zlib">
+   eJztllsKwkAMRYOPPVRdguAe3IMgKq5BpWvQdTv9EIpkUpNmKhnuhfPTmWTmtP1IQ0QNqJ5FYlcpS8b3QfXmRvCFbz0Z43tKnHtcDOd79JD6fdOS3bd7V/ceXd1BiUcPqR+Hp682Hj2kfiV9pf9oKtoJfaMAX/hyeSZewbiO8P1kW3i/tYaLx3y1L7zfWsOllK/0PXJ3t9RoU8pXul9uzVKjDXzhO5Tjj8+G1iw12nC+68QsOHOF77/nHw9W8IUvfMMCX/jCNy65mWnD+II6eQML6ozC
+  </data>
+ </layer>
+ <layer id="3" name="Enemys" width="60" height="34">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T20ND6AAAAAAAAAAgHcDH+AAAQ==
+  </data>
+ </layer>
+ <layer id="2" name="Fruits" width="60" height="34">
+  <data encoding="base64" compression="zlib">
+   eJzt2E0LgCAMgGH//98txWPt0EXaSFtf631AhMHmRC+aEoAo6tMN3Kg2s6U4rOdR46w/nS8AAACAMZMyt/I65o64KEo9K+dKR/cqpL/cEd/q7b0FrRytD6s3xPWGvwTAC/cZkXCfAXzdAqcIH48=
+  </data>
+ </layer>
+ <objectgroup id="5" name="CollisionsLayer">
+  <object id="5" x="384" y="224" width="160" height="256"/>
+  <object id="13" x="4" y="-6" width="92" height="1094"/>
+  <object id="20" x="0" y="992" width="1920" height="97.4091"/>
+  <object id="21" x="0" y="0" width="1920" height="97.4091"/>
+  <object id="22" x="1824" y="0" width="92" height="1094"/>
+  <object id="34" x="544" y="320" width="1280" height="160"/>
+  <object id="35" x="928" y="224" width="160" height="96"/>
+  <object id="36" x="1568" y="224" width="256" height="96"/>
+  <object id="37" x="96" y="704" width="1568" height="288"/>
+ </objectgroup>
+ <objectgroup id="9" name="Positions">
+  <object id="11" name="PlayerStart" x="1728" y="224">
+   <point/>
+  </object>
+  <object id="17" name="End" x="1728" y="992">
+   <point/>
+  </object>
+  <object id="19" name="CheckPoint" x="384" y="704">
+   <point/>
+  </object>
+ </objectgroup>
+</map>

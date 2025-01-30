@@ -1,0 +1,14 @@
+texture=../data/Images/Player/player_frog.png
+position=100.0,0.0
+tileWidth=32
+tileHeight=32
+maxTilesX=10
+animationSpeed=0.05
+scale=1.6,1.6
+origin=0.5,0.5
+speed=0.1,0.1
+collisionShapeSize=18.0,28.0
+hasManager=false
+maxSpeed=1.0,1.0
+jumpForce=0.5
+maxTilePerState=10,11,0,4

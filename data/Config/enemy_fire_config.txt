@@ -1,0 +1,12 @@
+texture=../Data/Images/Enemies/Fire.png
+enemyType=Fire
+tileWidth=32
+tileHeight=64
+maxTilesX=0
+animationSpeed=0.1
+scale=1.0,1.0
+origin=0.0,0.5
+hasManager=true
+maxTilePerState=0,3,2
+collisionShapeSize=32.0,32.0
+collisionShapeOrigin=0.0,1.0

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.1" orientation="orthogonal" renderorder="right-down" width="60" height="34" tilewidth="32" tileheight="32" infinite="0" nextlayerid="11" nextobjectid="24">
+ <tileset firstgid="1" source="images/tilemap/tilesetx2.tsx"/>
+ <tileset firstgid="243" source="images/tilemap/fruits.tsx"/>
+ <tileset firstgid="251" source="images/tilemap/Enemys.tsx"/>
+ <objectgroup id="7" name="SawPositions">
+  <object id="7" name="B2" x="512" y="304">
+   <point/>
+  </object>
+  <object id="8" name="A2" x="432" y="224">
+   <point/>
+  </object>
+  <object id="9" name="B2" x="640" y="304">
+   <point/>
+  </object>
+  <object id="10" name="A1" x="432" y="288">
+   <point/>
+  </object>
+ </objectgroup>
+ <layer id="1" name="Level" width="60" height="34">
+  <data encoding="base64" compression="zlib">
+   eJztz1EJACEUBdHLoh1k7WA1sf+PBngJhhmYAGckGY6/vRf0XnhPuO3o1ctJr15SevWS0quXlF69pPTqJaVXLym9eknp1Uuq8v7vD/osvM78AnJuRJ8=
+  </data>
+ </layer>
+ <layer id="3" name="Enemys" width="60" height="34">
+  <data encoding="base64" compression="zlib">
+   eJztw6ENAAAIAzD+fxkEwWJn26RVAAAAAAAAAJl+z7xAZgFo3gfd
+  </data>
+ </layer>
+ <layer id="2" name="Fruits" width="60" height="34">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T20ND6AAAAAAAAAAgHcDH+AAAQ==
+  </data>
+ </layer>
+ <objectgroup id="5" name="CollisionsLayer" visible="0" locked="1">
+  <object id="1" x="2.45454" y="547.924" width="958.879" height="97.4091"/>
+  <object id="5" x="288" y="448" width="160" height="97"/>
+  <object id="13" x="4" y="-6" width="92" height="1094"/>
+  <object id="20" x="0" y="992" width="1920" height="97.4091"/>
+  <object id="21" x="0" y="0" width="1920" height="97.4091"/>
+  <object id="22" x="1824" y="0" width="92" height="1094"/>
+ </objectgroup>
+ <objectgroup id="9" name="Positions">
+  <object id="11" name="PlayerStart" x="192" y="384">
+   <point/>
+  </object>
+  <object id="17" name="End" x="1760" y="992">
+   <point/>
+  </object>
+  <object id="19" name="CheckPoint" x="608" y="544">
+   <point/>
+  </object>
+ </objectgroup>
+</map>

@@ -1,0 +1,9 @@
+tileWidth=32
+tileHeight=32
+maxTilesX=16
+animationSpeed=0.08
+origin=0.5,0.5
+scale=2.0,2.0
+collisionShapeSize=20.0,20.0
+collisionShapeOrigin=0.5,0.5
+hasManager=true

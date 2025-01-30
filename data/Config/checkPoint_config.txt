@@ -1,0 +1,11 @@
+texture=../data/Images/Points/Checkpoint.png
+tileWidth=64
+tileHeight=64
+maxTilesX=0
+animationSpeed=0.08
+scale=1.0,1.0
+origin=0.5,1.0
+collisionShapeSize=20.0,45.0
+maxTilePerState=0,25,9
+hasManager=false
+collisionShapeOrigin=0.5,1.0

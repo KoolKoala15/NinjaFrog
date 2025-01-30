@@ -1,0 +1,11 @@
+texture=../Data/Images/Enemies/Spikes.png
+enemyType=Spike
+tileWidth=32
+tileHeight=32
+maxTilesX=0
+animationSpeed=0
+scale=1.0,1.0
+origin=0.0,0.0
+hasManager=true
+collisionShapeSize=32.0,16.0
+collisionShapeOrigin=0.0,-1.0

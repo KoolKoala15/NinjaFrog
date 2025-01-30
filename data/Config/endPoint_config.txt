@@ -1,0 +1,10 @@
+texture=../data/Images/Points/End.png
+tileWidth=64
+tileHeight=64
+maxTilesX=7
+animationSpeed=0.08
+scale=1.0,1.0
+origin=0.5,1.0
+collisionShapeSize=20.0,20.0
+maxTilePerState=7
+hasManager=false

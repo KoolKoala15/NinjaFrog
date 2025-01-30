@@ -1,0 +1,2 @@
+backgroundFilePath=../Data/Levels/images/Background/Blue.png
+backgroundScale=1.0,1.0

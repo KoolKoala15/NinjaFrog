@@ -1,0 +1,4 @@
+gameTitle=NinjaFrog
+screenWidth=1920u
+screenHeight=1080u
+frameRateLimit=60u

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.1" orientation="orthogonal" renderorder="right-down" width="60" height="34" tilewidth="32" tileheight="32" infinite="0" nextlayerid="11" nextobjectid="32">
+ <tileset firstgid="1" source="images/tilemap/tilesetx2.tsx"/>
+ <tileset firstgid="243" source="images/tilemap/fruits.tsx"/>
+ <tileset firstgid="251" source="images/tilemap/tileMap.tsx"/>
+ <tileset firstgid="493" source="images/Keys/wasd.tsx"/>
+ <tileset firstgid="509" source="images/tilemap/Enemys.tsx"/>
+ <objectgroup id="10" name="PoweUps" visible="0">
+  <object id="23" x="702" y="479" width="258" height="65"/>
+ </objectgroup>
+ <objectgroup id="7" name="SawPositions" visible="0"/>
+ <layer id="1" name="Level" width="60" height="34">
+  <data encoding="base64" compression="zlib">
+   eJztmWsOgjAQhBejZ9DoHbyPrzOI3kE9rY/4jvrDJSlJxS0WECPLTDIhkNlmv6RpKXSIqAOrd5PdV+qWwDsjvZoSeMGrR+AlmrOHDo+EMQaeOSlbNJc1L/GO2UuHV8IYC8+clC2aszlCy645qmU+g9edA2/1BF53DrzVU7R/Tag+vJFiFvC+Z8BbPdWVN41BE699xnCdLzTx+gi8Mu8meL0/B0JI0DqRO3nWlSUf3i33uGcfTK8Xvt7Y9w+970zd0eSupu5h1WX5NhIrKm/kdM+Dt0wl33vT9pJYbcr/LyEUnoH3O5LmrmZeie0feLuUfz34haU1pwgvrNNPfe6bqw==
+  </data>
+ </layer>
+ <layer id="3" name="Enemys" width="60" height="34" locked="1">
+  <data encoding="base64" compression="zlib">
+   eJztw7EJAAAIA7D6/8/iAeLqlEASAAAAAAAAgH9dd2AbIwsG+g==
+  </data>
+ </layer>
+ <layer id="2" name="Fruits" width="60" height="34">
+  <data encoding="base64" compression="zlib">
+   eJzt1MsKgCAUBUD//3et1m2jMDR62HUGRBdHQTyYEkBM80e51uwT8m6uzd+VO8tPjWdAz/SZSPSZSPT5v5bNGEHNfSP1ebT35ShSn+lfLqxb9l3ZD4yh9C/4L4A3rHpBHKQ=
+  </data>
+ </layer>
+ <objectgroup id="5" name="CollisionsLayer" visible="0">
+  <object id="5" x="768" y="928" width="160" height="64"/>
+  <object id="13" x="4" y="-6" width="92" height="1094"/>
+  <object id="20" x="0" y="992" width="1920" height="97.4091"/>
+  <object id="21" x="0" y="0" width="1920" height="97.4091"/>
+  <object id="22" x="1824" y="0" width="92" height="1094"/>
+  <object id="24" x="928" y="832" width="192" height="160"/>
+  <object id="25" x="1344" y="832" width="480" height="160"/>
+  <object id="26" x="1504" y="256" width="160" height="288"/>
+  <object id="27" x="1120" y="256" width="160" height="64"/>
+  <object id="28" x="800" y="256" width="160" height="64"/>
+  <object id="29" x="448" y="256" width="192" height="64"/>
+  <object id="30" x="96" y="256" width="224" height="64"/>
+  <object id="31" x="1536" y="448" width="128" height="288"/>
+ </objectgroup>
+ <objectgroup id="9" name="Positions">
+  <object id="11" name="PlayerStart" x="224" y="992">
+   <point/>
+  </object>
+  <object id="17" name="End" x="192" y="256">
+   <point/>
+  </object>
+ </objectgroup>
+</map>
