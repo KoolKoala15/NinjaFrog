@@ -14,7 +14,14 @@ class UIScreenMainMenu : public UIMenu
 {
 public:
 
-	sf::Font* m_font;
 	UIScreenMainMenu(UIScreenDescriptor& uis, Game* game);
+
+	~UIScreenMainMenu();
+
+	void render(sf::RenderWindow& window) override;
+
+private:
+	sf::Sprite* m_logo;
+	sf::Font* m_font;
 
 };
