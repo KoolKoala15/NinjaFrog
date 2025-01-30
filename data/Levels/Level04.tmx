@@ -3,20 +3,7 @@
  <tileset firstgid="1" source="images/tilemap/tilesetx2.tsx"/>
  <tileset firstgid="243" source="images/tilemap/fruits.tsx"/>
  <tileset firstgid="251" source="images/tilemap/Enemys.tsx"/>
- <objectgroup id="7" name="SawPositions">
-  <object id="7" name="B2" x="512" y="304">
-   <point/>
-  </object>
-  <object id="8" name="A2" x="432" y="224">
-   <point/>
-  </object>
-  <object id="9" name="B2" x="640" y="304">
-   <point/>
-  </object>
-  <object id="10" name="A1" x="432" y="288">
-   <point/>
-  </object>
- </objectgroup>
+ <objectgroup id="7" name="SawPositions"/>
  <layer id="1" name="Level" width="60" height="34">
   <data encoding="base64" compression="zlib">
    eJztlbEOgzAMRA0qY2EsgrF7/wf4CNr+/1CzMThVoAlpjjvprcZPjo5WRFoCz0V5gFIZvi/BzSz0pS9O6EtfpND3fL5vZTSYEu0YMpbv0wHC3enr73s/bs1g4X3p6+t7VWqlibVsgPC+YX1dnTZImv97qvvOHvNj9P8/+8ZITr5LH/7ahTn5Wtn65nP33fNdNN9CKR30gud7M2avoS99z+jbibsHttJHnG/N/uZLMPkAoxSlQw==
@@ -54,7 +41,7 @@
   <object id="17" name="End" x="1728" y="832">
    <point/>
   </object>
-  <object id="19" name="CheckPoint" x="608" y="544">
+  <object id="19" name="CheckPoint" x="960" y="640">
    <point/>
   </object>
  </objectgroup>

@@ -10,6 +10,8 @@ class AudioManager {
 public:
     static AudioManager* getInstance();
 
+    ~AudioManager();
+
     // Sound Effects
     bool loadSound(const std::string& name, const std::string& filepath);
     void playSound(const std::string& name);
@@ -27,9 +29,9 @@ private:
     float soundVolume = 100.0f;
 
     // Sfx
-    std::unordered_map<std::string, std::shared_ptr<sf::SoundBuffer>> m_soundBuffers;
-    std::unordered_map<std::string, std::shared_ptr<sf::Sound>> m_activeSounds;
+    std::unordered_map<std::string, std::unique_ptr<sf::SoundBuffer>> m_soundBuffers;
+    std::unordered_map<std::string, std::unique_ptr<sf::Sound>> m_activeSounds;
     
     // Music
-    std::unordered_map<std::string, std::shared_ptr<sf::Music>> m_music; 
+    std::unordered_map<std::string, std::unique_ptr<sf::Music>> m_music;
 };

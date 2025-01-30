@@ -44,8 +44,6 @@ void Player::updatePlayer(float deltaMilliseconds, Level& level)
 		m_positionGO.x += (m_direction.x * m_speed.x * deltaMilliseconds);
 		m_collisionShape.setPosition(m_positionGO);
 		if (level.checkCollision(getBounds())) {
-			//m_positionGO.x = m_lastPosition.x;
-			//m_positionGO.x -= m_direction.x * m_speed.x;
 			while (level.checkCollision(getBounds())) { m_positionGO.x -= m_direction.x * m_speed.x; m_collisionShape.setPosition(m_positionGO); }
 
 			if (m_isGrounded) {
@@ -60,9 +58,6 @@ void Player::updatePlayer(float deltaMilliseconds, Level& level)
 			}
 		}
 		else { m_onWall = false; }
-
-		
-		//std::cout << "player position : " << m_positionGO.x << ", " << m_positionGO.y << std::endl;
 	}
 	Entity::update(deltaMilliseconds);
 }

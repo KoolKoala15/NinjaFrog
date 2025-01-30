@@ -18,13 +18,12 @@ AudioManager* AudioManager::getInstance()
 // ######################		SoundEffects		######################
 bool AudioManager::loadSound(const std::string& name, const std::string& filepath)
 {
-	auto buffer = std::make_shared<sf::SoundBuffer>();
-	if (!buffer->loadFromFile(filepath)) {
+	m_soundBuffers[name] = std::make_unique<sf::SoundBuffer>();
+	if (!m_soundBuffers[name]->loadFromFile(filepath)) {
 		std::cerr << "Error: Couldn't load sound form: " << filepath << std::endl;
 		return false;
 	}
 
-	m_soundBuffers[name] = buffer;
 	return true;
 }
 
@@ -35,7 +34,7 @@ void AudioManager::playSound(const std::string& name) {
         // Create or re-use an instance of sf::Sound
         auto& sound = m_activeSounds[name];
         if (!sound) {
-            sound = std::make_shared<sf::Sound>();
+            sound = std::make_unique<sf::Sound>();
         }
         sound->setBuffer(*soundBufferIt->second);
         sound->setVolume(soundVolume);
@@ -48,12 +47,11 @@ void AudioManager::playSound(const std::string& name) {
 
 // ######################		Music		######################
 bool AudioManager::loadMusic(const std::string& name, const std::string& filepath) {
-    auto music = std::make_shared<sf::Music>();
-    if (!music->openFromFile(filepath)) {
+    m_music[name] = std::make_unique<sf::Music>();
+    if (!m_music[name]->openFromFile(filepath)) {
         std::cerr << "Error: Couldn't load music form: " << filepath << std::endl;
         return false;
     }
-    m_music[name] = music;
     return true;
 }
 
