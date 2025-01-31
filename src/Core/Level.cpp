@@ -23,11 +23,11 @@ Level::Level(Game::LevelData& levelDescriptor)
 {
 
 	// ##########		Map			##########
-	m_map = std::make_unique<tmx::Map>();
+	m_map = new tmx::Map();
 
 	m_map->load(levelDescriptor.levelPath);
 
-	// ##########		Layers		##########
+	// ##########		Level		##########
 	int levelId = makeLayers();
 
 	m_levelLayer = std::make_unique<MapLayer>(*m_map, levelId);
@@ -41,12 +41,12 @@ Level::Level(Game::LevelData& levelDescriptor)
 		m_collisionShapes.push_back(std::move(rectShape));
 	}
 
+	// ##########		Fruits		##########
+	m_fruitFistGUI = setFruitFirstGID();
 
 	// ##########		Enemy Positions		##########
 	CreateEnemyPositions(m_layersMap["Enemys"]->getLayerAs<tmx::TileLayer>());
 
-
-	//m_fruitTileLayer = static_cast<tmx::TileLayer*>((m_map->getLayers())[3].get());	// Collectable Layer
 	m_fruitTileLayer = &m_layersMap["Fruits"]->getLayerAs<tmx::TileLayer>();
 
 	// ##########		Positions		########## (Player start, CheckPoint & EndPosition)
@@ -65,6 +65,11 @@ Level::Level(Game::LevelData& levelDescriptor)
 	m_backgroundSprite.setScale(levelDescriptor.backgroundScale);
 	m_backgroundSprite.setTextureRect(sf::IntRect(0, -64 * m_backgroundSprite.getScale().y, m_map->getBounds().width, m_map->getBounds().height));
 
+
+
+	// Clear map 
+	delete m_map;
+	m_map = nullptr;
 }
 
 
@@ -157,9 +162,7 @@ void Level::CreateEnemyPositions(const tmx::TileLayer& tileLayer)
 			}
 
 			float rotation = 0;
-			m_enemyPositions[enemyTypeName].emplace_back(position, rotation);
-			//m_enemyPositions[enemyTypeName].push_back(position);
-							
+			m_enemyPositions[enemyTypeName].emplace_back(position, rotation);						
 		}
 	}
 
@@ -168,7 +171,6 @@ void Level::CreateEnemyPositions(const tmx::TileLayer& tileLayer)
 	{
 		sf::Vector2f position(object.getPosition().x, object.getPosition().y);
 		m_enemyPositions["Saw"].emplace_back(position, 0.f);
-		//m_enemyPositions["Saw"].push_back(position);
 	}
 
 #if DEBUG_MODE
@@ -196,7 +198,7 @@ bool Level::checkCollision(const sf::FloatRect& shapeToCheck) const {
 	return false;
 }
 
-const std::uint32_t Level::getFruitFirstGID()
+const std::uint32_t Level::setFruitFirstGID()
 {
 	const std::vector<tmx::Tileset>& tilesets = m_map->getTilesets();
 	for (const auto& tileset : tilesets) {

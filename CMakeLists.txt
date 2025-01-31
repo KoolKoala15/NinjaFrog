@@ -69,7 +69,6 @@ set(PROJECT_SOURCES
     src/Gameplay/Entity.cpp
     src/Gameplay/Player.cpp
     src/Gameplay/Enemy.cpp
-    src/Gameplay/Collectable.cpp
     src/Gameplay/Saw.cpp
     src/Gameplay/Fire.cpp
     src/Gameplay/Spike.cpp

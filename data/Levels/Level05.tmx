@@ -1,53 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.1" orientation="orthogonal" renderorder="right-down" width="60" height="34" tilewidth="32" tileheight="32" infinite="0" nextlayerid="11" nextobjectid="24">
+<map version="1.10" tiledversion="1.11.1" orientation="orthogonal" renderorder="right-down" width="60" height="34" tilewidth="32" tileheight="32" infinite="0" nextlayerid="11" nextobjectid="55">
  <tileset firstgid="1" source="images/tilemap/tilesetx2.tsx"/>
  <tileset firstgid="243" source="images/tilemap/fruits.tsx"/>
  <tileset firstgid="251" source="images/tilemap/Enemys.tsx"/>
  <objectgroup id="7" name="SawPositions">
-  <object id="7" name="B2" x="512" y="304">
+  <object id="24" name="C2" x="1776" y="161">
    <point/>
   </object>
-  <object id="8" name="A2" x="432" y="224">
+  <object id="7" name="B2" x="1600" y="656">
    <point/>
   </object>
-  <object id="9" name="B2" x="640" y="304">
+  <object id="8" name="A2" x="1600" y="916">
    <point/>
   </object>
-  <object id="10" name="A1" x="432" y="288">
+  <object id="25" name="C1" x="1776" y="704">
+   <point/>
+  </object>
+  <object id="9" name="B1" x="480" y="656">
+   <point/>
+  </object>
+  <object id="10" name="A1" x="416" y="916">
    <point/>
   </object>
  </objectgroup>
  <layer id="1" name="Level" width="60" height="34">
   <data encoding="base64" compression="zlib">
-   eJztz1EJACEUBdHLoh1k7WA1sf+PBngJhhmYAGckGY6/vRf0XnhPuO3o1ctJr15SevWS0quXlF69pPTqJaVXLym9eknp1Uuq8v7vD/osvM78AnJuRJ8=
+   eJztmE8OQTEQxse/M3g4guAMzoBI2NhgiTW27LmAo2qTJ2lk2o7XadPW+5IvlXQyzy9e5msVAFDUzt5t4XGm7iC8J8hXB/gP3mG5/gvvtFxr3vR4G8JNxC2lJkXes+ZzF/Cc6Sk1sfNuhffEWoxXZupEqQnNq/v+v3DphPH2vmpC8kqmHbhz6RSS92zZvwhfldWHMN4BwCvUvFJ/z4fwU1l9KPS80uVBKA8QBq55hb2/uvnoeo53sc95RZkXVXqkxNsH+3vYsvRwcdV5ZZu/UiOodhedMPSg9o/9fMUtTt6Z8DwiLzzzpiATL2XW2OaPFJbLthru/Y+WBt5jRYvM3XyfA36tcd3vG5i5eWOxKftz5V2VXhN4U///WeburfSdwJvjfP7IhTe23DXlLwdviuLKX0r2ctdRe5nuyj6zl7uO2guzjdn1fkZ5bm2/fgMxxtrb
   </data>
  </layer>
  <layer id="3" name="Enemys" width="60" height="34">
   <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T20ND6AAAAAAAAAAgHcDH+AAAQ==
+   eJztw7EJAAAIA7D+f7ODVxRBEkgCAABwZwoBAAAA4KMF4zUUrQ==
   </data>
  </layer>
  <layer id="2" name="Fruits" width="60" height="34">
   <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T20ND6AAAAAAAAAAgHcDH+AAAQ==
+   eJzt190KgCAMBtC9/+uqUV2FoDeRbmr+tL4DklAth9KUCAC0OGcPACDjmD2ARibR18CGpo0LDdptHWKuvOZ65JuyD/wWvGfkGoEyo/8tjubWm5p8URv/wyb68H1P8ymdY0P584y/55hnVv2P+PrsKF+nfV6W0vlxMbj3QT/MPczW6wxpbtc/GJWrpLYSyeYgxpLEK41dI9ZEbh8Sayu3h5DEk8YC0O4CG+VB4w==
   </data>
  </layer>
- <objectgroup id="5" name="CollisionsLayer" visible="0" locked="1">
-  <object id="1" x="2.45454" y="547.924" width="958.879" height="97.4091"/>
-  <object id="5" x="288" y="448" width="160" height="97"/>
+ <objectgroup id="5" name="CollisionsLayer">
+  <object id="1" x="96" y="736" width="1536" height="129.409"/>
+  <object id="5" x="96" y="960" width="416" height="33"/>
   <object id="13" x="4" y="-6" width="92" height="1094"/>
   <object id="20" x="0" y="992" width="1920" height="97.4091"/>
   <object id="21" x="0" y="0" width="1920" height="97.4091"/>
   <object id="22" x="1824" y="0" width="92" height="1094"/>
+  <object id="26" x="608" y="960" width="224" height="33"/>
+  <object id="27" x="928" y="960" width="224" height="33"/>
+  <object id="28" x="1248" y="960" width="192" height="33"/>
+  <object id="29" x="1536" y="960" width="288" height="33"/>
+  <object id="30" x="1632" y="800" width="96" height="64"/>
+  <object id="31" x="1440" y="704" width="160" height="33"/>
+  <object id="32" x="1184" y="704" width="160" height="33"/>
+  <object id="33" x="928" y="704" width="160" height="33"/>
+  <object id="34" x="640" y="704" width="192" height="33"/>
+  <object id="35" x="96" y="704" width="448" height="33"/>
+  <object id="36" x="448" y="544" width="480" height="64"/>
+  <object id="37" x="448" y="448" width="192" height="97"/>
+  <object id="38" x="640" y="448" width="352" height="64"/>
+  <object id="39" x="992" y="448" width="480" height="160"/>
+  <object id="40" x="1472" y="224" width="192" height="384"/>
+  <object id="41" x="1664" y="224" width="32" height="96"/>
+  <object id="42" x="1664" y="384" width="32" height="96"/>
+  <object id="43" x="1664" y="544" width="32" height="64"/>
+  <object id="44" x="1376" y="256" width="32" height="33"/>
+  <object id="45" x="1280" y="256" width="32" height="33"/>
+  <object id="46" x="1120" y="288" width="64" height="33"/>
+  <object id="47" x="928" y="320" width="64" height="33"/>
+  <object id="48" x="736" y="320" width="64" height="128"/>
+  <object id="49" x="704" y="352" width="32" height="33"/>
+  <object id="50" x="672" y="384" width="64" height="64"/>
+  <object id="51" x="576" y="416" width="96" height="33"/>
+  <object id="52" x="416" y="384" width="32" height="33"/>
+  <object id="53" x="288" y="480" width="32" height="33"/>
+  <object id="54" x="160" y="576" width="32" height="33"/>
  </objectgroup>
  <objectgroup id="9" name="Positions">
-  <object id="11" name="PlayerStart" x="192" y="992">
+  <object id="11" name="PlayerStart" x="192" y="960">
    <point/>
   </object>
-  <object id="17" name="End" x="1760" y="992">
+  <object id="17" name="End" x="1600" y="224">
    <point/>
   </object>
-  <object id="19" name="CheckPoint" x="608" y="544">
+  <object id="19" name="CheckPoint" x="320" y="704">
    <point/>
   </object>
  </objectgroup>

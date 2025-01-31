@@ -29,11 +29,11 @@ class Game
 
 		struct LevelData
 		{
-			bool unlocked;
+			bool unlocked{ false };
 			std::string levelPath;
 			std::string backgroundTexturePath;
 			sf::Vector2f backgroundScale{ 1.0f, 1.0f };
-			int levelNumber;
+			int levelNumber{ 0 };
 		};
 
 		struct  SaveData
@@ -63,7 +63,7 @@ class Game
 
 		// Level logic
 		void openLevel(int levelNumber);
-		void passLevel();
+		bool passLevel();
 		void resetLevel();
 		bool isLevelLocked(int level) { return !m_levels[level].unlocked; }
 		int getLevelNumb() { return m_levelNumb; }

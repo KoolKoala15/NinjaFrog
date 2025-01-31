@@ -75,7 +75,7 @@ bool World::init(Game::LevelData& levelData)
 CollectableManager* World::createCollectableManager(int numb)
 {
 	CollectableManager* collectableManager = new CollectableManager(numb);
-	collectableManager->init(m_currentLevel->getFruitTileLayer(), m_currentLevel->getFruitFirstGID());
+	collectableManager->init(m_currentLevel->getFruitTileLayer(), m_currentLevel->getFuitFirstGID());
 	return collectableManager;	
 }
 
@@ -138,7 +138,9 @@ void World::CreateCheckPoint(bool& initOk)
 
 void World::ChangeLevel(Game::LevelData& newLevelDescriptor)
 {
-	std::cout << "World :: changing level " << std::endl;
+#if DEBUG_MODE
+	std::cout << "World :: changing level " << std::endl; 
+#endif
 	if (m_currentLevel) {
 		delete m_currentLevel;
 		m_currentLevel = nullptr;
@@ -183,7 +185,7 @@ void World::ChangeLevel(Game::LevelData& newLevelDescriptor)
 
 	// ##########		Fruits		##########	
 	m_fruitsManager->deinit();
-	m_fruitsManager->init(m_currentLevel->getFruitTileLayer(), m_currentLevel->getFruitFirstGID());
+	m_fruitsManager->init(m_currentLevel->getFruitTileLayer(), m_currentLevel->setFruitFirstGID());
 
 	// ##########		Enemys		##########	
 	m_enemyManager->deinit();

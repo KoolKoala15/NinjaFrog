@@ -39,10 +39,12 @@ bool Game::init(GameCreateInfo& createInfo)
 
 	// ##########	Save Load		##########
 	ConfigLoader::loadSave(m_saveData);
+#if DEBUG_MODE
 	std::cout << "maxLevel save data: " << m_saveData.maxLevel << std::endl;
 	for (auto& level : m_saveData.levelScores) {
 		std::cout << level.first << " : " << level.second << std::endl;
 	}
+#endif
 
 	// ##########	Levels Load		##########
 	if (!ConfigLoader::loadLevelsData("../Data/Config/levels_config.txt", m_levels))
@@ -149,14 +151,14 @@ void Game::goToMainMenu()
 {
 	m_inMainMenu = true;
 	deleteWorld();
-	m_uiManager->setCurrentScreen("MainMenu", true);
+	m_uiManager->setCurrentScreen("MainMenu", true, true);
 }
 
 void Game::goToLevelMenu()
 {
 	m_inMainMenu = true;
 	deleteWorld();
-	m_uiManager->setCurrentScreen("LevelSelector", true);
+	m_uiManager->setCurrentScreen("LevelSelector", true, true);
 }
 
 
@@ -164,12 +166,14 @@ void Game::goToLevelMenu()
 void Game::openLevel(int levelNumber)
 {
 	if (levelNumber == -1) levelNumber = m_levelNumb;
-	if(levelNumber == m_lastLevel) m_uiManager->setCurrentScreen("MainMenu", true, true);
+	//if(levelNumber == m_lastLevel) m_uiManager->setCurrentScreen("MainMenu", true, true);
 	else {
 		m_inMainMenu = false;
 		setLevelNumber(levelNumber);
 		m_uiManager->setCurrentScreen("Hud", false, false);
+#if DEBUG_MODE		
 		std::cout << "Game: Opening level: " << levelNumber << std::endl;
+#endif
 		if (!m_world) {
 			m_world = new World();
 		}
@@ -183,12 +187,16 @@ void Game::openLevel(int levelNumber)
 	}
 }
 
-void Game::passLevel()
+bool Game::passLevel()
 {
 	m_saveData.levelScores[m_levelNumb] = getCurrentScore();
-	setLevelNumber(m_levelNumb + 1);
-	for (auto& level : m_saveData.levelScores) {
-		std::cout << level.first << " : " << level.second << std::endl;
+	if (m_levelNumb != m_lastLevel) {
+		setLevelNumber(m_levelNumb + 1);
+		return true;
+	}
+	else {	
+		goToMainMenu();
+		return false;
 	}
 }
 

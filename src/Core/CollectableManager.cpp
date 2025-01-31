@@ -106,7 +106,6 @@ void CollectableManager::resetCollectable(Collectable* collectable, const sf::Ve
 
 void CollectableManager::removeCollectable( Collectable* collectable)
 {
-	std::cout << collectable->getPositionGO().x << ", " << collectable->getPositionGO().y << std::endl;
 	auto it = std::find(m_activeCollectables.begin(), m_activeCollectables.end(), collectable);
 	if (it != m_activeCollectables.end())
 	{

@@ -37,8 +37,8 @@ public:
 	bool checkCollision(const sf::FloatRect& shapeToCheck) const;
 
 	tmx::TileLayer* getFruitTileLayer() { return m_fruitTileLayer; }
-
-	const std::uint32_t getFruitFirstGID();
+	const std::uint32_t setFruitFirstGID();
+	const std::uint32_t getFuitFirstGID() { return m_fruitFistGUI; }
 
 	sf::Vector2f getPlayerStartPosition() { return m_startPlayerPosition; }
 	bool hasCheckPoint() { return m_checkPointPosition != sf::Vector2f{ .0f,.0f }; }
@@ -53,7 +53,7 @@ protected:
 	sf::Sprite m_backgroundSprite;
 	float m_backgroundAnim{ -64.f };
 
-	std::unique_ptr<tmx::Map> m_map{ nullptr };
+	tmx::Map* m_map{ nullptr };
 
 
 	std::unique_ptr<MapLayer> m_levelLayer{ nullptr };
@@ -61,7 +61,7 @@ protected:
 	std::vector<std::unique_ptr<sf::Shape>> m_collisionShapes;
 
 	tmx::TileLayer* m_fruitTileLayer{ nullptr };
-	std::vector<Collectable*> m_fruits;
+	uint32_t m_fruitFistGUI{ 0 };
 	
 	sf::Vector2f m_startPlayerPosition{ .0f, .0f };
 	sf::Vector2f m_checkPointPosition{ .0f, .0f };

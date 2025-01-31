@@ -23,10 +23,7 @@ public:
 
 	void input();
 
-	void setSpawnPoint(sf::Vector2f position) {
-		m_spawnPoint.x = position.x; m_spawnPoint.y = position.y - m_sprite.getLocalBounds().height;
-		std::cout << "origin" << m_sprite.getOrigin().y << std::endl;
-	}
+	void setSpawnPoint(sf::Vector2f position) { m_spawnPoint.x = position.x; m_spawnPoint.y = position.y - m_sprite.getLocalBounds().height;}
 	void spawn();
 
 	void dead();
@@ -39,15 +36,15 @@ protected:
 	int m_jumpState{ 0 };
 
 	sf::Vector2f m_maxSpeed{0.5f , 0.5f};
-	sf::Vector2f m_lastPosition;
+	sf::Vector2f m_lastPosition{ 0.0f, 0.0f };
 	
 	void updateAnimation(bool active) override;
 	
 
 	
 
-	bool m_canJump;
-	bool m_onWall;
+	bool m_canJump{	false };
+	bool m_onWall{ false };
 	float m_airJumpTime{ .0f };
 
 	sf::Vector2f m_spawnPoint{ .0f, .0f };

@@ -61,7 +61,7 @@ void Entity::update(float deltaMilliseconds)
 void Entity::updateAnimation(bool active)
 {
 	if (active) {
-		if (!m_maxTilePerState.empty())m_maxTileX = m_maxTilePerState[m_tiley];
+		if (!m_maxTilePerState.empty()) m_maxTileX = m_maxTilePerState[m_tiley];
 		m_sprite.setTextureRect(sf::IntRect(m_tilex * m_tileWidth, m_tiley * m_tileHeight, m_tileWidth, m_tileHeight));
 		m_tilex = (m_tilex + 1) % (m_maxTileX + 1);
 	}

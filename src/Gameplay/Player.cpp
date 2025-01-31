@@ -31,6 +31,7 @@ void Player::updatePlayer(float deltaMilliseconds, Level& level)
 {	
 	if (m_active) {
 		update(deltaMilliseconds);
+		// Y axis
 		m_positionGO.y += (m_speed.y * deltaMilliseconds);
 		m_collisionShape.setPosition(m_positionGO);
 		if (level.checkCollision(getBounds())) {
@@ -41,6 +42,7 @@ void Player::updatePlayer(float deltaMilliseconds, Level& level)
 		}
 		else { m_isGrounded = false; if (m_airJumpTime >= 100.f) m_canJump = false; }
 
+		// X axis
 		m_positionGO.x += (m_direction.x * m_speed.x * deltaMilliseconds);
 		m_collisionShape.setPosition(m_positionGO);
 		if (level.checkCollision(getBounds())) {

@@ -49,7 +49,6 @@ void EnemyManager::init(std::unordered_map<std::string, std::vector<std::pair<sf
 {
 	for (const auto [enemyName, positions] : enemyPositions) 
 	{
-		std::cout << "name: " << enemyName << std::endl;
 		Enemy::EnemyType enemyType = Enemy::stringToEnemyType(enemyName);
 		if ( enemyType != Enemy::EnemyType::BaseEnemy) 
 		{
@@ -72,7 +71,6 @@ void EnemyManager::init(std::unordered_map<std::string, std::vector<std::pair<sf
 				float rotation = positions[i].second;
 
 				sf::Vector2f endPosition = (enemyType == Enemy::EnemyType::Saw) ? positions[i + enemyNum].first : sf::Vector2f{ 0.f, 0.f };
-				std::cout << "a";
 				resetEnemy(enemy, startPosition, rotation, endPosition);
 				m_activeEnemies[enemyType].push_back(enemy);
 			}
@@ -138,7 +136,9 @@ void EnemyManager::setDescriptor(Enemy::EnemyType enemyType)
 		if (!ConfigLoader::loadEntityDescriptor(("../Data/config/enemy_" + Enemy::enemyTypeToString(enemyType) + "_config.txt"), *m_descriptor)) {
 			std::cerr << "Error loading config for enemy " << Enemy::enemyTypeToString(enemyType) << std::endl;
 		}
+#if DEBUG_MODE
 		else { std::cout << "Enemy " << Enemy::enemyTypeToString(enemyType) << " succesfully load" << std::endl; }
+#endif
 	}
 }
 

@@ -52,7 +52,6 @@ UIButton* UIMenu::mouseClick(sf::Vector2i& mousePos)
 			if (button->m_current)
 			{
 				return button;
-				//button->m_function();
 			}
 		}
 	}

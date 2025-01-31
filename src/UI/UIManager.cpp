@@ -60,7 +60,9 @@ void UIManager::setCurrentScreen(const std::string& name, bool pause, bool whitT
 			auto it = m_screens.find(name);
 			if (it != m_screens.end())
 			{
-				std::cout << "Set screen " << name << std::endl;
+#if DEBUG_MODE	
+				std::cout << "Set screen " << name << std::endl;	
+#endif
 				m_currentUIScreen = it->second;
 				m_currentUIScreen->init(m_game);
 			}

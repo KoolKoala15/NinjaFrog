@@ -46,7 +46,7 @@ private:
 
 	int m_transition = 0; // -1 out , 0 not transition, 1 in
 	sf::Sprite* m_transitionSprite{ nullptr };
-	float m_elapsedTime;
+	float m_elapsedTime{ 0.0f };
 
 	void makeTransitionSprite();
 	void startTransition(int mode);

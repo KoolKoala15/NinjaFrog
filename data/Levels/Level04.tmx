@@ -16,7 +16,7 @@
  </layer>
  <layer id="2" name="Fruits" width="60" height="34">
   <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T20ND6AAAAAAAAAAgHcDH+AAAQ==
+   eJzt1rEKwCAMhOG8/+sWa+tUhw5FKASkpp7/B5LF4Q4kaAboytEBBsrNnN3huKPW1dNZxUpdAQDazugAwMdSdIAf2+op97THnNnbP73tqNC11x4dAEMlYx/y5gG/Eh0AACDvAiO1Fh8=
   </data>
  </layer>
  <objectgroup id="5" name="CollisionsLayer">
