@@ -1,4 +1,5 @@
 #include <cassert>
+#include <Core/AudioManager.h>
 #include <Core/ConfigLoader.h>
 #include <Core/Game.h>
 #include <Core/World.h>
@@ -15,6 +16,7 @@
 Game::~Game()
 {
 	delete m_uiManager;
+	delete AudioManager::getInstance();
 	delete m_world;
 	delete m_window	;
 }
@@ -34,8 +36,8 @@ bool Game::init(GameCreateInfo& createInfo)
 	m_window->setFramerateLimit(createInfo.frameRateLimit);
 	
 	// ##########	Load Sounds		##########
-	ConfigLoader::loadSounds("../data/Sound/SoundEffectsList.txt");
-	
+	ConfigLoader::loadSounds("../data/Sound/SoundList.txt");
+	AudioManager::getInstance()->playMusic("music");
 
 	// ##########	Save Load		##########
 	ConfigLoader::loadSave(m_saveData);
@@ -49,6 +51,8 @@ bool Game::init(GameCreateInfo& createInfo)
 	// ##########	Levels Load		##########
 	if (!ConfigLoader::loadLevelsData("../Data/Config/levels_config.txt", m_levels))
 	{std::cerr << "Error loading levels " << std::endl; }
+
+	
 
 	if (m_saveData.maxLevel != 1) {
 		for (int i = 1; i < m_saveData.maxLevel +1; ++i)
@@ -143,7 +147,7 @@ void Game::CreateMenus()
 	if (!ConfigLoader::loadScreenDescriptor("../Data/Config/UILevelSelector_config.txt", levelSelectorDescription)) {
 		std::cerr << "Error: Failed to load the level menu configuration -" << std::endl;
 	}
-	levelSelectorDescription.totalButtons = m_levels.size();
+	levelSelectorDescription.totalButtons = m_levels.size()-1;
 	m_uiManager->addScreen("LevelSelector", new UILevelSelector(levelSelectorDescription, this));
 }
 
@@ -166,8 +170,6 @@ void Game::goToLevelMenu()
 void Game::openLevel(int levelNumber)
 {
 	if (levelNumber == -1) levelNumber = m_levelNumb;
-	//if(levelNumber == m_lastLevel) m_uiManager->setCurrentScreen("MainMenu", true, true);
-	else {
 		m_inMainMenu = false;
 		setLevelNumber(levelNumber);
 		m_uiManager->setCurrentScreen("Hud", false, false);
@@ -184,19 +186,15 @@ void Game::openLevel(int levelNumber)
 		else {
 			m_world->init(m_levels[levelNumber]);
 		}
-	}
 }
 
-bool Game::passLevel()
+void Game::passLevel()
 {
-	m_saveData.levelScores[m_levelNumb] = getCurrentScore();
-	if (m_levelNumb != m_lastLevel) {
-		setLevelNumber(m_levelNumb + 1);
-		return true;
-	}
-	else {	
-		goToMainMenu();
-		return false;
+	if(m_levelNumb != m_lastLevel) m_saveData.levelScores[m_levelNumb] = getCurrentScore();
+	setLevelNumber(m_levelNumb + 1);
+	if (m_levelNumb >= m_lastLevel) m_uiManager->setCurrentScreen("MainMenu", true, true);
+	else {
+		openLevel(-1);
 	}
 }
 

@@ -63,7 +63,7 @@ class Game
 
 		// Level logic
 		void openLevel(int levelNumber);
-		bool passLevel();
+		void passLevel();
 		void resetLevel();
 		bool isLevelLocked(int level) { return !m_levels[level].unlocked; }
 		int getLevelNumb() { return m_levelNumb; }

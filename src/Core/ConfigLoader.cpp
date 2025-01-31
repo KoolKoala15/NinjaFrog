@@ -412,7 +412,12 @@ bool ConfigLoader::loadSounds(const std::string& filePath)
 		std::istringstream iss(line);
 		std::string soundName, soundFilePath;
 		if (std::getline(iss, soundName, '=') && std::getline(iss, soundFilePath)) {
-			audioManager->loadSound(soundName, soundFilePath);
+			if (soundName != "music") {
+				audioManager->loadSound(soundName, soundFilePath);
+			}
+			else {
+				audioManager->loadMusic(soundName, soundFilePath);
+			}
 		}
 	}
 

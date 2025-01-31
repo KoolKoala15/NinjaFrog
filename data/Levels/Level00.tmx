@@ -29,7 +29,7 @@
  </layer>
  <layer id="2" name="Fruits" width="60" height="34">
   <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T20ND6AAAAAAAAAAgHcDH+AAAQ==
+   eJztz7ENAEAIAzH2X5cF2OALCngJW7o+iQAAgD/k9oBh+eiKi58BAAAAoKsAEY4Kcg==
   </data>
  </layer>
  <objectgroup id="5" name="CollisionsLayer" visible="0" locked="1">

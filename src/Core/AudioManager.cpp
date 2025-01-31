@@ -15,6 +15,14 @@ AudioManager* AudioManager::getInstance()
 	return s_instance;
 }
 
+
+AudioManager::~AudioManager()
+{
+    m_activeSounds.clear();
+    m_soundBuffers.clear();
+    m_music.clear();
+}
+
 // ######################		SoundEffects		######################
 bool AudioManager::loadSound(const std::string& name, const std::string& filepath)
 {
@@ -58,6 +66,7 @@ bool AudioManager::loadMusic(const std::string& name, const std::string& filepat
 void AudioManager::playMusic(const std::string& name) {
     auto musicIt = m_music.find(name);
     if (musicIt != m_music.end()) {
+        musicIt->second->setLoop(true);
         musicIt->second->play();
     }
     else {

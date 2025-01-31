@@ -1,3 +1,0 @@
-buttonClick=../data/Sound/SoundEffects/menuClick.wav
-jump=../data/Sound/SoundEffects/jump.wav
-eat=../data/Sound/SoundEffects/eat.wav

@@ -77,7 +77,8 @@ UILevelCompleted::UILevelCompleted(UIScreenDescriptor& uis, Game* game) :UIMenu(
 	};
 	buttonDescriptor.textBelow = "Next Level";
 	buttonDescriptor.function = [game]() {
-		if(game->passLevel()) game->openLevel(-1);
+		game->passLevel();
+		//game->openLevel(-1);
 		};
 	UIButton* nextLevelButton = new UIButton(buttonDescriptor);
 	m_buttons.push_back(nextLevelButton);

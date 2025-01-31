@@ -1,6 +1,6 @@
-maxLevel=5
-level_1=0
-level_2=0
-level_3=0
-level_4=0
-level_5=35
+maxLevel=6
+level_1=90
+level_2=24
+level_3=55
+level_4=55
+level_5=90

@@ -185,7 +185,7 @@ void World::ChangeLevel(Game::LevelData& newLevelDescriptor)
 
 	// ##########		Fruits		##########	
 	m_fruitsManager->deinit();
-	m_fruitsManager->init(m_currentLevel->getFruitTileLayer(), m_currentLevel->setFruitFirstGID());
+	m_fruitsManager->init(m_currentLevel->getFruitTileLayer(), m_currentLevel->getFuitFirstGID());
 
 	// ##########		Enemys		##########	
 	m_enemyManager->deinit();
